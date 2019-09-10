@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar{
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    left: -20%;
+    background: rgb(219, 61, 68);
+    color: #fff;  
+}
+
+#sidebar a{
+    color: #fff;
+}
+
+#sidebar ul li a{
+    text-decoration: none;
+    list-style: none;
+    display: block;
+    font-size: 24px;
+    padding: 30px;
+    text-align: center;   
+}
+
+#sidebar ul li a:hover{
+    background: rgb(15, 15, 15);
+    color: #fff;
+}
+
+
+.toggle-btn{
+    position: absolute;
+    left: 105%;
+    top: 15px;
+}
+
+.toggle-btn span{
+    display: block;
+    background-color: black;
+    width: 30px;
+    height: 5px;
+    margin: 3px;
+}
+
+#sidebar.active{
+    left: 0;
+}
