@@ -1,0 +1,109 @@
+import React, { Component } from "react";
+import "./Style.css";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardGroup,
+  Col,
+  Container,
+  Form,
+  Input,
+  InputGroup,
+  Row
+} from "reactstrap";
+import axios from "axios";
+
+class Login extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      uName: "",
+      pass: ""
+    };
+
+    this.login = this.login.bind(this);
+  }
+
+  changeHandler = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  submitHandler = event => {
+    event.preventDefault();
+  };
+
+  /* consume login api */
+  login() {
+    const { uName, pass } = this.state;
+    const url = "http://10.11.200.42:6060/Application/Login";
+
+    const obj = {
+      uName,
+      pass
+    };
+
+    axios
+      .post(url, obj)
+      .then(res => {
+        console.log(res);
+        const data = res.data.verifyNodes[0];
+        console.log("Outcode", data.outCode);
+      })
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    let { uName, pass } = this.state;
+    return (
+      <div className="app flex-row align-items-center">
+        <Container>
+          <Row className="justify-content-center">
+            <Col md="9" lg="7" xl="6">
+              <CardGroup>
+                <Card className="p-2">
+                  <CardBody>
+                    <Form>
+                      <div className="row mb-2 pageheading">
+                        <div className="col-sm-12 btn btn-primary">Login</div>
+                      </div>
+                      <InputGroup className="mb-3">
+                        <Input
+                          type="name"
+                          placeholder="Enter User Name"
+                          name="uName"
+                          id="uName"
+                          value={uName}
+                          onChange={this.changeHandler}
+                        />
+                      </InputGroup>
+                      <InputGroup className="mb-4">
+                        <Input
+                          type="password"
+                          placeholder="Enter Password"
+                          name="pass"
+                          id="pass"
+                          value={pass}
+                          onChange={this.changeHandler}
+                        />
+                      </InputGroup>
+                      <Button onClick={this.login} color="success" block>
+                        Login
+                      </Button>
+                    </Form>
+                  </CardBody>
+                </Card>
+              </CardGroup>
+            </Col>
+          </Row>
+        </Container>
+        <p>Name: {this.state.uName}</p>
+        <p>Pass: {this.state.pass}</p>
+      </div>
+    );
+  }
+}
+export default Login;

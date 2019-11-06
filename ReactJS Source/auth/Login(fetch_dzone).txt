@@ -1,0 +1,101 @@
+import React, { Component } from "react";
+import "./Style.css";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardGroup,
+  Col,
+  Container,
+  Form,
+  Input,
+  InputGroup,
+  Row
+} from "reactstrap";
+
+class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      uName: "",
+      pass: ""
+    };
+    this.pass = this.pass.bind(this);
+    this.uName = this.uName.bind(this);
+    this.login = this.login.bind(this);
+  }
+
+  uName(event) {
+    this.setState({ uName: event.target.value });
+  }
+  pass(event) {
+    this.setState({ pass: event.target.value });
+  }
+
+  //Login with rest api
+  login() {
+    const url = `http://10.11.200.42:6060/Application/Login`;
+    //debugger;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        uName: this.state.uName,
+        pass: this.state.pass
+      })
+    })
+      .then(Response => Response.json())
+      .then(result => {
+        console.log(result);
+
+        if (result.Status === "F") alert("Invalid User");
+        else this.props.history.push("/Dashboard");
+      })
+      .catch(() => console.log("Can’t access " + url));
+  }
+
+  render() {
+    return (
+      <div className="app flex-row align-items-center">
+        <Container>
+          <Row className="justify-content-center">
+            <Col md="9" lg="7" xl="6">
+              <CardGroup>
+                <Card className="p-2">
+                  <CardBody>
+                    <Form>
+                      <div className="row mb-2 pageheading">
+                        <div className="col-sm-12 btn btn-primary">Login</div>
+                      </div>
+                      <InputGroup className="mb-3">
+                        <Input
+                          type="text"
+                          onChange={this.uName}
+                          placeholder="Enter User Name"
+                        />
+                      </InputGroup>
+                      <InputGroup className="mb-4">
+                        <Input
+                          type="password"
+                          onChange={this.pass}
+                          placeholder="Enter Password"
+                        />
+                      </InputGroup>
+                      <Button onClick={this.login} color="success" block>
+                        Login
+                      </Button>
+                    </Form>
+                  </CardBody>
+                </Card>
+              </CardGroup>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  }
+}
+export default Login;

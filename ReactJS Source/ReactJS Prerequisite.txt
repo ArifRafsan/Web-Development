@@ -1,0 +1,44 @@
+Prerequisite
+======================
+	JS (JavaScript)
+	ES6
+	NodeJS (just package maintain)
+	NPM - Node Package Manager
+
+Should Know before learning ReactJS
+====================================
+-> How 'import' or 'require' works?
+-> What's webpack,gulp, browserfy?
+-> What's package bundler?
+-> How 'this' and 'map' works in javaScript and ES6
+-> How can we write html code inside javaScript?
+-> What is JSX?
+
+JavaScript
+========================
+	- Basic Functions
+	- OOP
+	- JSON format
+	- 'this' keyword
+	
+JSX and babel
+
+ES6,ES7
+========================= 
+	- ES6 new features
+	- Class & Constructors
+	- Extends & Inheritance
+	
+Package Manage
+========================
+	NodeJS (npm)
+	Yarn
+	
+CLI - Command Line Interface
+
+Web Services
+=======================
+	- AWS
+	- Google Cloud Platform
+	- Microsoft Azure
+	
