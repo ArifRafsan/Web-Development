@@ -1,0 +1,19 @@
+{
+    "id":1,
+    "name": "Arif Ullah",
+    "username": "Rafsan",
+    "email": "rafsan9994@gmail.com",
+    "address": {
+        "road": "Mitali Road",
+        "street":"Dhanmondi",
+        "city": "Dhaka",
+        "zipcode": "1209"
+    },
+    "phone": "01829320829",
+    "website":"rafsan.com",
+    "company":{
+        "name": "Era Infotech Ltd",
+        "address":"topkhana road, paltan, dhaka"
+    }
+
+}
