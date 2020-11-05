@@ -1,0 +1,37 @@
+How to Install Python 3.5 on CentOS/RHEL
+==========================================
+Step 1 – Prerequisites
+	yum install gcc sqlite-devel
+
+Step 2 – Download Python 3.5
+	cd /usr/src
+	wget https://www.python.org/ftp/python/3.5.9/Python-3.5.9.tgz
+
+	Now extract the downloaded package.
+	tar xzf Python-3.5.9.tgz
+
+Compile Python Source
+	cd Python-3.5.9
+	./configure --enable-optimizations
+	make altinstall
+
+
+	make altinstall is used to prevent replacing the default python binary file /usr/bin/python.
+
+	Now remove downloaded source archive file from your system
+	rm Python-3.5.9.tgz
+
+	python3.5 -V
+
+
+pip3 install opencv-python
+
+pip3 install opencv-python==4.1.1.26
+
+Centos7.5 install dlib
+===========================================
+https://programmersought.com/article/80133969102/
+
+How to Install Anaconda on CentOS 7
+===========================================
+https://linuxize.com/post/how-to-install-anaconda-on-centos-7/
