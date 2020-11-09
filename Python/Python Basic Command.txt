@@ -1,0 +1,8 @@
+Python Project  Steps:
+==================
+Step 1: django-admin startproject project_name
+           cd project_name
+
+Step 2: py manage.py runserver
+
+Step 3: py manage.py startapp app_name
